@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Whack-A-Trump</title>
+        <style>
+            * {
+                font-family: sans-serif;
+                cursor:
+                    url(https://cdn.custom-cursor.com/db/cursor/32/Thor_Mjolnir.png),
+                    default;
+            }
+            img {
+                height: 100px;
+                border-radius: 100px;
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                cursor: pointer;
+                /* Optional: Adds a smooth transition instead of instant teleportation */
+                transition: all 0.3s ease;
+                cursor:
+                    url(https://cdn.custom-cursor.com/db/cursor/32/Thor_Mjolnir.png),
+                    default;
+            }
+
+            img:hover {
+                cursor:
+                    url(https://cdn.custom-cursor.com/db/pointer/32/Thor_Mjolnir.png),
+                    pointer !important;
+            }
+
+            div {
+                height: 80vh;
+                width: 100vw;
+            }
+
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Whack-A-Trump</h1>
+
+        <div>
+            <img
+                src="./trump.jpg"
+        </div>
+
+        <script>
+            img = document.querySelector("img");
+
+            img.addEventListener("click", (e) => {
+                const maxX = window.innerWidth - img.clientWidth;
+                const maxY = window.innerHeight - img.clientHeight;
+
+                // 2. Generate random X and Y coordinates within the limits
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+
+                // 3. Apply the new positions to the element's style properties
+                img.src = "./trump_angry.jxl";
+                
+
+                img.style.left = `${randomX}px`;
+                img.style.top = `${randomY}px`;
+                setTimeout(() => {
+                    img.src = "./trump.jpg";
+                }, 1000);
+            });
+        </script>
+    </body>
+</html>
